@@ -1,0 +1,16 @@
+# Use postgres/example user/password credentials
+
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql
+    env_file:
+      - .env
+    shm_size: 128mb
+
+volumes:
+  pg_data:
+    driver: local
